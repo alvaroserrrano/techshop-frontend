@@ -8,9 +8,9 @@ import Order from './pages/Order';
 import OrderList from './pages/OrderList';
 import Payment from './pages/Payment';
 import PlaceOrder from './pages/PlaceOrder';
-import Product from './pages/Product';
 import ProductEdit from './pages/ProductEdit';
 import ProductList from './pages/ProductList';
+import ProductPage from './pages/ProductPage';
 import Profile from './pages/Profile';
 import Register from './pages/Register';
 import Shipping from './pages/Shipping';
@@ -31,7 +31,7 @@ function App() {
           <Route path='/placeorder' component={PlaceOrder} />
           <Route path='/order/:id' component={Order} />
           <Route path='/payment' component={Payment} />
-          <Route path='/product/:id' component={Product} />
+          <Route path='/product/:id' component={ProductPage} />
           <Route path='/cart/:id?' component={Cart} />
 
           <Route path='/admin/userlist' component={UserList} />
