@@ -14,6 +14,13 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
             x.product === itemExists.product ? item : x
           ),
         };
+      } else {
+        return {
+          ...state,
+          cartItems: [...state.cartItems, item],
+        };
       }
+    default:
+      return state;
   }
 };
