@@ -10,13 +10,9 @@ import {
 } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { addToCart } from '../actions/cartActions';
+import { addToCart, removeFromCart } from '../actions/cartActions';
 import Message from '../components/Message';
-
 const Cart = ({ match, location, history }) => {
-  const removeFromCartHandler = () => {
-    console.log('removing from cart');
-  };
   const checkOutHandler = () => {
     history.push('/login?redirect=shipping');
   };
@@ -24,6 +20,9 @@ const Cart = ({ match, location, history }) => {
   const qty = Location.search ? Number(location.search.split('=')[1]) : 1;
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
+  const removeFromCartHandler = (id) => {
+    dispatch(removeFromCart(id));
+  };
   const { cartItems } = cart;
   useEffect(() => {
     if (productId) {
