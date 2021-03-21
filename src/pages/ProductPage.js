@@ -40,7 +40,7 @@ const ProductPage = ({ match, history }) => {
   };
   useEffect(() => {
     dispatch(getProduct(match.params.id));
-  }, []);
+  }, [dispatch, match]);
   return (
     <div>
       <Link to='/' className='btn btn-light my-3'>
