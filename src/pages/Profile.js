@@ -18,8 +18,8 @@ const Profile = ({ history }) => {
   const { error, loading, user } = userDetails;
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
-  const userUpdate = useSelector((state) => state.userUpdate);
-  const { success } = userUpdate;
+  const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
+  const { success } = userUpdateProfile;
   const orderListMy = useSelector((state) => state.orderListMy);
   const { loading: loadingOrders, error: errorOrders, orders } = orderListMy;
   useEffect(() => {
