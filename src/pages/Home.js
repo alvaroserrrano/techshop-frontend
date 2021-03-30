@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../actions/productActions';
+import CarouselHome from '../components/Carousel';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
 import Paginate from '../components/Paginate';
@@ -17,6 +18,7 @@ const Home = ({ history }) => {
   }, [dispatch, keyword]);
   return (
     <div>
+      {!keyword && <CarouselHome />}
       <h1>Latest Products</h1>
       {loading ? (
         <Loader />
