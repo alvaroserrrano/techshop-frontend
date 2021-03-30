@@ -9,6 +9,7 @@ import {
 } from '../actions/productActions';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
+import Paginate from '../components/Paginate';
 import { PRODUCT_CREATE_RESET } from '../constants/productConstants';
 
 function ProductListScreen({ history, match }) {
@@ -134,7 +135,7 @@ function ProductListScreen({ history, match }) {
               ))}
             </tbody>
           </Table>
-          {/* <Paginate pages={pages} page={page} isAdmin={true} /> */}
+          <Paginate pages={pages} page={page} isAdmin={true} />
         </div>
       )}
     </div>

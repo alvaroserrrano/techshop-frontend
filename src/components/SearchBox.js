@@ -1,10 +1,20 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { useHistory } from 'react-router';
 
 const SearchBox = () => {
   const [keyword, setKeyword] = useState('');
+  let history = useHistory();
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if (keyword) {
+      history.push(`/?keyword=${keyword}&page=1`);
+    } else {
+      history.push(history.push(history.location.pathname));
+    }
+  };
   return (
-    <Form inline>
+    <Form onSubmit={submitHandler} inline>
       <Form.Control
         type='text'
         name='q'

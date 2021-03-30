@@ -4,15 +4,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../actions/productActions';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
+import Paginate from '../components/Paginate';
 import Product from '../components/Product';
 
-const Home = () => {
+const Home = ({ history }) => {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
-  const { products, loading, error } = productList;
+  const { products, loading, error, page, pages } = productList;
+  let keyword = history.location.search;
   useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
+    dispatch(getProducts(keyword));
+  }, [dispatch, keyword]);
   return (
     <div>
       <h1>Latest Products</h1>
@@ -29,6 +31,7 @@ const Home = () => {
               </Col>
             ))}
           </Row>
+          <Paginate page={page} pages={pages} keyword={keyword} />
         </div>
       )}
     </div>
